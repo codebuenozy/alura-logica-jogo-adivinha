@@ -1,58 +1,27 @@
 <!DOCTYPE html>
+<html lang="pt-br">
 
-<html lang=pt-br>
-<meta charset="UTF-8">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Jogo Adivinha</title>
 
-<script>
+	<link rel="stylesheet" href="./assets/style/style.css">
+</head>
 
-    function pulaLinha() {
+<body>
 
-        document.write("<br><br>");
-    }
+	<h1>Jogo Adivinha</h1>
+    <div id="container">
+      <label for="chute">Digite um número de 0 a 10:</label>
+      <input type="number" id="chute" min="0" max="10" placeholder="Digite um número de 0 a 10">
+      <button id="enviar">Enviar</button>
+      <button id="tentar-novamente" disabled>Tentar novamente</button>
+      <div id="output"></div>
+    </div>
 
-    function mostra(frase) {
+	<script type="text/javascript" src="./assets/script/script.js"></script>
 
-        document.write(frase);
-        pulaLinha();
-    }
+</body>
 
-    function sorteia(min, max) {
-        
-        return Math.floor(Math.random() * (max - min + 1)) + min;
-    }
-
-    alert("Vou pensar em um número de 1 a 10 e você terá 3 tentativas para acertar. Vamos começar!");
-
-    var numeroPensado = sorteia(1, 10);
-    console.log(numeroPensado);
-
-    var tentativas = 1;
-
-    while (tentativas <= 3) {
-
-        var chute = parseInt(prompt("Tentativa " + tentativas + ": Qual é o número que eu pensei?"));
-
-        if (isNaN(chute) || chute < 1 || chute > 10) {
-                alert("Por favor, digite um número entre 1 e 10.");
-                continue;
-        }
-
-        if (chute === numeroPensado) {
-                mostra("Uau! Você acertou, eu pensei no número " + numeroPensado + ". Parabéns!");
-                mostra("Se quiser jogar novamente, recarregue a página.");
-                break;
-
-        } else {
-                var dica = chute < numeroPensado ? "maior" : "menor";
-                alert("Você errou! O número que eu pensei é " + dica + " do que " + chute + ".");
-                tentativas++;
-            }
-    }
-
-        if (tentativas > 3) {
-            mostra("Infelizmente suas 3 tentativas acabaram. O número que eu pensei era: " + numeroPensado);
-            mostra("Se quiser jogar novamente, recarregue a página.");
-        }
-
-</script>
 </html>
