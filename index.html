@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<html lang=pt-br>
+<meta charset="UTF-8">
+
+<script>
+
+    function pulaLinha() {
+
+        document.write("<br><br>");
+    }
+
+    function mostra(frase) {
+
+        document.write(frase);
+        pulaLinha();
+    }
+
+    function sorteia(min, max) {
+        
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    alert("Vou pensar em um número de 1 a 10 e você terá 3 tentativas para acertar. Vamos começar!");
+
+    var numeroPensado = sorteia(1, 10);
+    console.log(numeroPensado);
+
+    var tentativas = 1;
+
+    while (tentativas <= 3) {
+
+        var chute = parseInt(prompt("Tentativa " + tentativas + ": Qual é o número que eu pensei?"));
+
+        if (isNaN(chute) || chute < 1 || chute > 10) {
+                alert("Por favor, digite um número entre 1 e 10.");
+                continue;
+        }
+
+        if (chute === numeroPensado) {
+                mostra("Uau! Você acertou, eu pensei no número " + numeroPensado + ". Parabéns!");
+                mostra("Se quiser jogar novamente, recarregue a página.");
+                break;
+
+        } else {
+                var dica = chute < numeroPensado ? "maior" : "menor";
+                alert("Você errou! O número que eu pensei é " + dica + " do que " + chute + ".");
+                tentativas++;
+            }
+    }
+
+        if (tentativas > 3) {
+            mostra("Infelizmente suas 3 tentativas acabaram. O número que eu pensei era: " + numeroPensado);
+            mostra("Se quiser jogar novamente, recarregue a página.");
+        }
+
+</script>
+</html>
