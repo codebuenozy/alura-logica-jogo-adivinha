@@ -47,3 +47,4 @@ const output = document.getElementById('output');
       enviarBtn.disabled = false;
       tentarNovamenteBtn.disabled = true;
     });
+	
